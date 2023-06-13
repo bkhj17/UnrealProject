@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\sbauser\\source\\repos\\bkhj17\\ue\\unrealprojectgit\\unrealproject\\myproject2\\intermediate\\build\\win64\\unrealeditor\\inc\\myproject2\\targetcomponent.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\sbauser\\source\\repos\\bkhj17\\ue\\unrealprojectgit\\unrealproject\\myproject2\\intermediate\\build\\win64\\myproject2editor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\sbauser\\source\\repos\\bkhj17\\ue\\unrealprojectgit\\unrealproject\\myproject2\\intermediate\\build\\win64\\unrealeditor\\development\\myproject2\\definitions.myproject2.h",
+            "c:\\users\\sbauser\\source\\repos\\bkhj17\\ue\\unrealprojectgit\\unrealproject\\myproject2\\source\\myproject2\\character\\targetcomponent.h",
+            "c:\\users\\sbauser\\source\\repos\\bkhj17\\ue\\unrealprojectgit\\unrealproject\\myproject2\\intermediate\\build\\win64\\unrealeditor\\inc\\myproject2\\targetcomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

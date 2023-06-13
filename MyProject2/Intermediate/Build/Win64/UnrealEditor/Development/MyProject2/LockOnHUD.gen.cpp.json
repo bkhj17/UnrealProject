@@ -1,0 +1,20 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\sbauser\\source\\repos\\bkhj17\\ue\\unrealprojectgit\\unrealproject\\myproject2\\intermediate\\build\\win64\\unrealeditor\\inc\\myproject2\\lockonhud.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\sbauser\\source\\repos\\bkhj17\\ue\\unrealprojectgit\\unrealproject\\myproject2\\intermediate\\build\\win64\\myproject2editor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\sbauser\\source\\repos\\bkhj17\\ue\\unrealprojectgit\\unrealproject\\myproject2\\intermediate\\build\\win64\\unrealeditor\\development\\myproject2\\definitions.myproject2.h",
+            "c:\\users\\sbauser\\source\\repos\\bkhj17\\ue\\unrealprojectgit\\unrealproject\\myproject2\\source\\myproject2\\ui\\lockonhud.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\hud.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\hudhitbox.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\debugtextinfo.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\debugtextinfo.generated.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\hud.generated.h",
+            "c:\\users\\sbauser\\source\\repos\\bkhj17\\ue\\unrealprojectgit\\unrealproject\\myproject2\\intermediate\\build\\win64\\unrealeditor\\inc\\myproject2\\lockonhud.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
