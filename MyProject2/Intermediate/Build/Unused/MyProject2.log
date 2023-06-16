@@ -1,0 +1,17 @@
+﻿  Using bundled DotNet SDK
+  Log file: C:\Users\SBAUser\AppData\Local\UnrealBuildTool\Log.txt
+  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\SBAUser\source\repos\bkhj17\UE\UnrealProjectGit\UnrealProject).
+  Building MyProject2Editor...
+  Using Visual Studio 2022 14.36.32532 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  Determining max actions to execute in parallel (12 physical cores, 20 logical cores)
+    Executing up to 12 processes, one per physical core
+    Requested 1.5 GB free memory per action, 7.88 GB available: limiting max parallel actions to 5
+  Building 4 actions with 4 processes...
+  [1/4] Compile BoosterComponent.cpp
+  [2/4] Link UnrealEditor-MyProject2.lib
+     C:\Users\SBAUser\source\repos\bkhj17\UE\UnrealProjectGit\UnrealProject\MyProject2\Intermediate\Build\Win64\UnrealEditor\Development\MyProject2\UnrealEditor-MyProject2.lib 라이브러리 및 C:\Users\SBAUser\source\repos\bkhj17\UE\UnrealProjectGit\UnrealProject\MyProject2\Intermediate\Build\Win64\UnrealEditor\Development\MyProject2\UnrealEditor-MyProject2.exp 개체를 생성하고 있습니다.
+  [3/4] Link UnrealEditor-MyProject2.dll
+     C:\Users\SBAUser\source\repos\bkhj17\UE\UnrealProjectGit\UnrealProject\MyProject2\Intermediate\Build\Win64\UnrealEditor\Development\MyProject2\UnrealEditor-MyProject2.suppressed.lib 라이브러리 및 C:\Users\SBAUser\source\repos\bkhj17\UE\UnrealProjectGit\UnrealProject\MyProject2\Intermediate\Build\Win64\UnrealEditor\Development\MyProject2\UnrealEditor-MyProject2.suppressed.exp 개체를 생성하고 있습니다.
+  [4/4] WriteMetadata MyProject2Editor.target
+  Total time in Parallel executor: 2.08 seconds
+  Total execution time: 3.06 seconds

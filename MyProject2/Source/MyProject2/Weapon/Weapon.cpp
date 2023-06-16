@@ -44,7 +44,6 @@ void AWeapon::Reload()
 FTransform AWeapon::CalcBulletTransform(bool bLocked, FVector direction)
 {
 	FTransform transform;
-	
 	transform.SetLocation(GetActorLocation() + GetActorForwardVector() * 100.0f);
 	
 	FRotator rotation = bLocked ? direction.Rotation() : GetActorForwardVector().Rotation();
@@ -71,9 +70,7 @@ void AWeapon::Shot(bool bLocked, FVector direction)
 		if (bullet->IsActive())
 			continue;
 
-		FTransform transform = CalcBulletTransform(bLocked, direction);
-		bullet->SetActorTransform(transform);
-		bullet->SetActive(true);
+		bullet->Shot(CalcBulletTransform(bLocked, direction), Range);
 
 		if(CurCartridge > 0) 
 			CurCartridge--;

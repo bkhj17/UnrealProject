@@ -73,7 +73,6 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float BoostSpeed = 1.0f;
 
-
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 		FName boosterSocket;
 

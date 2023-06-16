@@ -32,16 +32,14 @@ void AUnit::BeginPlay()
 
 void AUnit::AttackAll(bool targetSet, FVector diraction)
 {
-	for (auto& slot : Weapons) {
+	for (auto& slot : Weapons)
 		Attack(slot.Key, targetSet, diraction);
-	}
 }
 
 void AUnit::Attack(FName slot, bool targetSet, FVector diraction)
 {
-	if (Weapons.Find(slot)) {
+	if (Weapons.Find(slot))
 		Weapons[slot]->Shot(targetSet, diraction);
-	}
 }
 
 void AUnit::AttackTargetAll(FVector target)

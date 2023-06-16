@@ -27,8 +27,12 @@ void ABot::Tick(float DeltaTime)
 	}
 	RotateLockOn();
 
-	if (Booster->GetCurVolume() <= 0.0f) {
+	if (Booster->GetCurVolume() <= 0.0f)
 		OnWalk();
+
+	for (auto& trigger : WeaponTriggered) {
+		if (trigger.Value)
+			OnWeaponShot(trigger.Key);
 	}
 }
 
@@ -42,7 +46,10 @@ void ABot::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 	PlayerInputComponent->BindAction("Jump", EInputEvent::IE_Pressed, this, &ABot::OnJump);
 	PlayerInputComponent->BindAction("LeftWeapon", EInputEvent::IE_Pressed, this, &ABot::OnLeftWeapon);
+	PlayerInputComponent->BindAction("LeftWeapon", EInputEvent::IE_Released, this, &ABot::OffLeftWeapon);
 	PlayerInputComponent->BindAction("RightWeapon", EInputEvent::IE_Pressed, this, &ABot::OnRightWeapon);
+	PlayerInputComponent->BindAction("RightWeapon", EInputEvent::IE_Released, this, &ABot::OffRightWeapon);
+
 	PlayerInputComponent->BindAction("LockOn", EInputEvent::IE_Pressed, Targets, &UTargetComponent::LockOn);
 
 	PlayerInputComponent->BindAction("Boost", EInputEvent::IE_DoubleClick, Booster, &UBoosterComponent::BoostOn);
@@ -86,6 +93,9 @@ void ABot::BeginPlay()
 	Super::BeginPlay();
 	PrimaryActorTick.bCanEverTick = true;
 	SetActive(true);
+
+	for (auto& weapon : Weapons)
+		WeaponTriggered.Add(weapon.Key, false);
 }
 
 void ABot::OnMoveForward(float Axis)
@@ -121,25 +131,23 @@ void ABot::OnRotateHorizontal(float Axis)
 
 void ABot::OnRotateVertical(float Axis)
 {
-	if (!Targets->GetLockedOn()) {
+	if (!Targets->GetLockedOn())
 		AddControllerPitchInput(-Axis * RotSpeed * GetWorld()->GetDeltaSeconds());
-	}
 }
 
 void ABot::OnJump()
 {
 	if (GetMovementComponent()->IsFlying())
 		OnWalk();
-	else if (GetMovementComponent()->IsFalling()) {
+	else if (GetMovementComponent()->IsFalling())
 		GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_Flying);
-	}
 	else {
 		bPressedJump = true;
 		JumpKeyHoldTime = 0.0f;
 	}
 }
 
-void ABot::OnWeapon(FName slot)
+void ABot::OnWeaponShot(FName slot)
 {
 	if (Targets->GetLockedOn() != nullptr) {
 		AUnit* target = Targets->GetLockedOn();
@@ -152,16 +160,32 @@ void ABot::OnWeapon(FName slot)
 		FVector controllerForward = GetControlRotation().Vector();
 		Attack(slot, true, controllerForward);
 	}
-}	
+}
+void ABot::OnWeaponTrigger(FName slot, bool on)
+{
+	WeaponTriggered[slot] = on;
+}
 
 void ABot::OnLeftWeapon()
 {
-	OnWeapon("LeftArm");
+	//OnWeaponShot("LeftArm");
+	OnWeaponTrigger("LeftArm", true);
+}
+
+void ABot::OffLeftWeapon()
+{
+	OnWeaponTrigger("LeftArm", false);
 }
 
 void ABot::OnRightWeapon()
 {
-	OnWeapon("RightArm");
+	//OnWeaponShot("RightArm");
+	OnWeaponTrigger("RightArm", true);
+}
+
+void ABot::OffRightWeapon()
+{
+	OnWeaponTrigger("RightArm", false);
 }
 
 void ABot::RotateLockOn()

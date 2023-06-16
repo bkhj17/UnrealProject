@@ -12,16 +12,15 @@ class MYPROJECT2_API AWeapon : public AActor
 	GENERATED_BODY()
 protected:
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
-		FString Name;
+		FString Name = "";
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
-		float Power;
+		float Power = 1.0f;
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
-		float Range;
+		float Range = 100000.0f;
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
-		int MaxCartridge;
-
+		int MaxCartridge = 0;
 	UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly)
-		int CurCartridge;
+		int CurCartridge = 0;
 
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 		float ShotRate = 0.5f;

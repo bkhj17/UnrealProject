@@ -27,8 +27,15 @@ void ABullet::SetActive(bool Active)
 	if (Active) {
 		Movement->RecreatePhysicsState();
 		Movement->Velocity = GetActorForwardVector() * Movement->InitialSpeed;
-		UKismetSystemLibrary::K2_SetTimer(this, "Inactive", 5.0f, false);
+		UKismetSystemLibrary::K2_SetTimer(this, "Inactive", range / Movement->InitialSpeed, false);
 	}
+}
+
+void ABullet::Shot(const FTransform& transform, float inputRange)
+{
+	this->range = inputRange;
+	SetActorTransform(transform);
+	SetActive(true);
 }
 
 // Called when the game starts or when spawned
@@ -50,15 +57,12 @@ void ABullet::OnHitBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor
 	if (OtherActor == nullptr) return;
 	if (OtherActor == Weapon || OtherActor == Weapon->GetOwner()) return;
 
+	UGameplayStatics::ApplyDamage(OtherActor, Weapon->GetPower(), Cast<ACharacter>(Weapon->GetOwner())->GetController(), Weapon->GetOwner(), nullptr);
 
-//	UGameplayStatics::ApplyDamage(OtherActor, Weapon->GetPower(), Cast<ACharacter>(Weapon->GetOwner())->GetController(), Weapon->GetOwner(), nullptr);
-
-	TSubclassOf<UDamageType> const ValidDamageTypeClass = TSubclassOf<UDamageType>(UDamageType::StaticClass());
-	FDamageEvent DamageEvent(ValidDamageTypeClass);
-	OtherActor->TakeDamage(Weapon->GetPower(), DamageEvent, Cast<ACharacter>(Weapon->GetOwner())->GetController(), Weapon->GetOwner());
-
+//	TSubclassOf<UDamageType> const ValidDamageTypeClass = TSubclassOf<UDamageType>(UDamageType::StaticClass());
+//	FDamageEvent DamageEvent(ValidDamageTypeClass);
+//	OtherActor->TakeDamage(Weapon->GetPower(), DamageEvent, Cast<ACharacter>(Weapon->GetOwner())->GetController(), Weapon->GetOwner());
 	if(HitEffect)
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitEffect, GetActorTransform());
-		
 	SetActive(false);
 }

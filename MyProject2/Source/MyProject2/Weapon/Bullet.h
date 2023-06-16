@@ -25,6 +25,8 @@ public:
 
 	void SetActive(bool Active);
 	bool IsActive() { return bActive; }
+
+	void Shot(const FTransform& transform, float range);
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -34,9 +36,10 @@ protected:
 			int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResultprivate);
 	UFUNCTION()
 	void Inactive() { SetActive(false); }
-public:	
 
 protected:
 	class UShapeComponent* Collider;
 	class AWeapon* Weapon;
+
+	float range;
 };

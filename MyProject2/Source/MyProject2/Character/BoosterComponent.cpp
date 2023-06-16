@@ -49,13 +49,10 @@ void UBoosterComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAct
 	if (Owner == nullptr)
 		return;
 
-	if (CurVolume <= 0.0f || (IsBoosting() && Owner->GetMovementComponent()->GetLastInputVector().Size() == 0)) {
+	if (CurVolume <= 0.0f || (IsBoosting() && Owner->GetMovementComponent()->GetLastInputVector().Size() == 0))
 		BoostOff();
-		Owner->GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_Walking);
-	}
 
 	float required = 0.0f;
-	
 	if(IsFloating())
 		required += FloatingDemand;
 	if (bBoost)

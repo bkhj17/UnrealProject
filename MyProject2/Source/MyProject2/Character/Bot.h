@@ -38,10 +38,13 @@ protected:
 
 	void OnJump();
 
-	void OnWeapon(FName slot);
+	void OnWeaponShot(FName slot);
+	void OnWeaponTrigger(FName slot, bool on);
 
 	void OnLeftWeapon();
+	void OffLeftWeapon();
 	void OnRightWeapon();
+	void OffRightWeapon();
 
 	void RotateLockOn();
 protected:
@@ -55,5 +58,7 @@ protected:
 	class UBoosterComponent* Booster;
 
 	UPROPERTY(VisibleAnywhere)
-	float RotSpeed = 30.0f;
+	float RotSpeed = 30.0f; 
+
+	TMap<FName, bool> WeaponTriggered;
 };
