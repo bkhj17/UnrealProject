@@ -22,7 +22,6 @@ public:
 	void SetMissionOper(class UMissionOperator* oper) { MissionOper = oper; }
 protected:	
 	void DrawCrossHair();
-	void DrawMissionPoint();
 protected:
 	AUnit* lockedOn = nullptr;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)

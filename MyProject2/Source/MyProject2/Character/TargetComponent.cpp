@@ -77,7 +77,6 @@ void UTargetComponent::SearchEnemies()
 		if (enemy->IsHidden())
 			continue;
 
-
 		if (Owner->GetDistanceTo(enemy) > LockOnRange)
 			continue;
 

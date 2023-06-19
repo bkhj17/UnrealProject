@@ -33,7 +33,3 @@ void ABotHUD::DrawCrossHair()
 
 	Canvas->DrawItem(item);
 }
-
-void ABotHUD::DrawMissionPoint()
-{
-}

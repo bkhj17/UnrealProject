@@ -57,8 +57,7 @@ float AEnemy::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AC
 void AEnemy::Death()
 {
 	Super::Death();
-	if (MissionPoint != nullptr) {
-		//MissionPoint¿¡ »ç¸Á ¾Ë¸²;
+	//MissionPoint¿¡ »ç¸Á ¾Ë¸²
+	if (MissionPoint != nullptr)
 		MissionPoint->UnitDead();
-	}
 }

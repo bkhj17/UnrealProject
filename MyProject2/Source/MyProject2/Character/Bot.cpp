@@ -161,6 +161,7 @@ void ABot::OnWeaponShot(FName slot)
 		Attack(slot, true, controllerForward);
 	}
 }
+
 void ABot::OnWeaponTrigger(FName slot, bool on)
 {
 	WeaponTriggered[slot] = on;
