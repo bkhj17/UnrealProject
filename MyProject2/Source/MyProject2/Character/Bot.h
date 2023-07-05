@@ -4,11 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "Unit.h"
-#include "GenericTeamAgentInterface.h"
 #include "Bot.generated.h"
 
 UCLASS()
-class MYPROJECT2_API ABot : public AUnit, public IGenericTeamAgentInterface
+class MYPROJECT2_API ABot : public AUnit
 {
 	GENERATED_BODY()
 
@@ -19,7 +18,6 @@ public:
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	virtual FGenericTeamId GetGenericTeamId() const override;
 
 	virtual void SetActive(bool Active) override;
 

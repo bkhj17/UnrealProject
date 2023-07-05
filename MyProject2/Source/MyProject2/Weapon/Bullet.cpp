@@ -59,9 +59,10 @@ void ABullet::OnHitBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor
 
 	UGameplayStatics::ApplyDamage(OtherActor, Weapon->GetPower(), Cast<ACharacter>(Weapon->GetOwner())->GetController(), Weapon->GetOwner(), nullptr);
 
-//	TSubclassOf<UDamageType> const ValidDamageTypeClass = TSubclassOf<UDamageType>(UDamageType::StaticClass());
+	TSubclassOf<UDamageType> const ValidDamageTypeClass = TSubclassOf<UDamageType>(UDamageType::StaticClass());
 //	FDamageEvent DamageEvent(ValidDamageTypeClass);
 //	OtherActor->TakeDamage(Weapon->GetPower(), DamageEvent, Cast<ACharacter>(Weapon->GetOwner())->GetController(), Weapon->GetOwner());
+
 	if(HitEffect)
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitEffect, GetActorTransform());
 	SetActive(false);

@@ -55,11 +55,6 @@ void ABot::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAction("Boost", EInputEvent::IE_DoubleClick, Booster, &UBoosterComponent::BoostOn);
 }
 
-FGenericTeamId ABot::GetGenericTeamId() const
-{
-	return FGenericTeamId(TeamID);
-}
-
 void ABot::SetActive(bool Active)
 {
 	AUnit::SetActive(Active);

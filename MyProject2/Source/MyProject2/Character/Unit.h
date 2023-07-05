@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "GenericTeamAgentInterface.h"
 #include "Unit.generated.h"
 
 UCLASS()
-class MYPROJECT2_API AUnit : public ACharacter
+class MYPROJECT2_API AUnit : public ACharacter, public IGenericTeamAgentInterface
 {
 	GENERATED_BODY()
 protected:
@@ -49,6 +50,7 @@ public:
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 
 	FORCEINLINE uint8 GetTeamID() { return TeamID; }
+	virtual FGenericTeamId GetGenericTeamId() const override;
 
 	virtual void Death();
 protected:

@@ -79,6 +79,11 @@ float AUnit::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, ACo
 	return DamageAmount;
 }
 
+FGenericTeamId AUnit::GetGenericTeamId() const
+{
+	return FGenericTeamId(TeamID);
+}
+
 void AUnit::Death()
 {
 	SetActive(false);
